@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+@plugin 'daisyui' {
+  logs: false;
+  themes: all;
+}
+
+
+html, body, #app {
+  min-height: 100vh;
+}
+
+
+/* Frame */
+:root {
+  --frame-radius: var(--radius-xl);
+  --frame-width: calc(var(--spacing) * 1.5);
+  --frame-padding: calc(var(--frame-width) + var(--frame-radius) - 2px);
+}
+.frame {
+  border-color: var(--color-primary);
+  border-width: var(--frame-width);
+}
+
+
+/* Table styling */
+/* Column separators */
+.table::before,
+.table::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-secondary);
+  opacity: 35%;
+}
+.table::before {
+  left: calc((100% / 3) - 1rem);   /* first separator */
+}
+.table::after {
+  left: calc((100%*2/3) - 1rem); /* second separator */
+}
+/* Color alternation */
+tbody>tr:nth-child(2n-1) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+/* Top padding */
+tbody>tr:first-child>td {
+  padding-top: 0.5rem;
+}
+
+
+/* Tooltip adjustments */
+:root {
+  --info-size: calc(var(--spacing) * 5);
+  --info-half-size: calc(var(--info-size) / 2);
+}
+.tooltip-br::before {
+  inset: var(--tt-off) auto auto 50%; /* Ripped straight from tooltip-bottom */
+  max-width: 30vw;
+  text-align: left;
+  transform: translate(calc(var(--info-half-size) * -1), 0);
+}
+.tooltip-br::after {
+  display: none;
+}

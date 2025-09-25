@@ -1,0 +1,39 @@
+{
+  "name": "save-editor-nine-sols-edition",
+  "private": true,
+  "version": "0.1.0",
+  "homepage": "https://NoelleStern.github.io/Save-Editor-Nine-Sols-Edition",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "@iconify-json/ic": "^1.2.4",
+    "@sveltejs/vite-plugin-svelte": "^6.1.1",
+    "@tsconfig/svelte": "^5.0.4",
+    "@types/json-bigint": "^1.0.4",
+    "@types/json-source-map": "^0.6.0",
+    "daisyui": "^5.1.10",
+    "gh-pages": "^6.3.0",
+    "svelte": "^5.38.1",
+    "svelte-check": "^4.3.1",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.2"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "@types/file-saver": "^2.0.7",
+    "fflate": "^0.8.2",
+    "file-saver": "^2.0.5",
+    "json-bigint": "^1.0.0",
+    "json-source-map": "^0.6.1",
+    "rmpp": "^0.1.0",
+    "tailwindcss": "^4.1.13",
+    "unplugin-icons": "^22.3.0",
+    "vite-plugin-wasm": "^3.5.0"
+  }
+}
