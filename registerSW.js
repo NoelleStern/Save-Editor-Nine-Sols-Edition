@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/Save-Editor-Nine-Sols-Edition/sw.js', { scope: '/Save-Editor-Nine-Sols-Edition/' })})}
