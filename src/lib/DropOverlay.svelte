@@ -94,24 +94,6 @@
 
 
 <style>
-  @keyframes fontChange {
-    0% {
-      font-family: "Space Grotesk", serif;
-    }
-    25% {
-      font-family: "Caveat", serif;
-    }
-    50% {
-      font-family: "Roboto Condensed", serif;
-    }
-    75% {
-      font-family: "VT323", serif;
-    }
-    100% {
-      font-family: "Space Grotesk", serif;
-    }
-  }
-
   @keyframes -global-fadeIn {
     from {
       opacity: 0;
