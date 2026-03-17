@@ -24,24 +24,24 @@
     <div class="pt-1 pb-4">
 
       <!-- Title -->
-      <div class="text-4xl text-bold text-secondary"> Attention! </div>
+      <div class="text-4xl text-bold text-secondary text-center"> Attention! </div>
     
       <!-- Save file location -->
-      <div class="py-2">
+      <div class="py-2 text-center">
         <div> On Windows, Save files are located at: </div>
           <div class="relative h-[1.2em]"> 
-          <div class="absolute text-info hover:underline select-all text-nowrap">%userprofile%\AppData\LocalLow\RedCandleGames\NineSols</div>
+            <div class="text-info hover:underline select-all break-all">%userprofile%\AppData\LocalLow\RedCandleGames\NineSols</div>
         </div>
-		<div> On Linux(Proton Prefix): </div>
+      <div class="mt-2">On Linux (Proton Prefix):</div>
           <div class="relative h-[1.2em]"> 
-          <div class="absolute text-info hover:underline select-all text-nowrap">/home/(username)/.steam/steam/steamapps/compatdata/1809540/pfx/drive_c/users/steamuser/AppData/LocalLow/RedCandleGames/NineSols/saveslot0/</div>
+            <div class="text-info hover:underline select-all break-all">/home/(username)/.steam/steam/steamapps/compatdata/1809540/pfx/drive_c/users/steamuser/AppData/LocalLow/RedCandleGames/NineSols</div>
         </div>
       </div>
 
       <!-- Instructions -->
-      <div class="flex flex-col max-w-95 w-max">
+      <div class="flex flex-col max-w-[40rem] w-full mx-auto">
         <!-- Quick guide -->
-        {@render horizontalLine('Quick guide', 'mt-4')}
+        {@render horizontalLine('Quick Guide', 'mt-4')}
         <li> Please, <span class="font-bold">make a backup</span> of your original save file </li>
         <li> Select or drag'n'drop the save file you want to modify </li>
         <li> Wait patiently for the file to open, it usually takes a few seconds </li>
