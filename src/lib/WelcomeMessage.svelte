@@ -29,11 +29,11 @@
       <!-- Save file location -->
       <div class="py-2">
         <div> On Windows, Save files are located at: </div>
-        <div class="relative h-[1.2em]"> 
+          <div class="relative h-[1.2em]"> 
           <div class="absolute text-info hover:underline select-all text-nowrap">%userprofile%\AppData\LocalLow\RedCandleGames\NineSols</div>
         </div>
-				<div> On Linux(Proton Prefix): </div>
-        <div class="relative h-[1.2em]"> 
+		<div> On Linux(Proton Prefix): </div>
+          <div class="relative h-[1.2em]"> 
           <div class="absolute text-info hover:underline select-all text-nowrap">/home/(username)/.steam/steam/steamapps/compatdata/1809540/pfx/drive_c/users/steamuser/AppData/LocalLow/RedCandleGames/NineSols/saveslot0/</div>
         </div>
       </div>
