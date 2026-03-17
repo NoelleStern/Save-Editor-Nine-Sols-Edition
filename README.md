@@ -23,6 +23,10 @@ The default Steam save file location for Windows is:
 ```
 %userprofile%\AppData\LocalLow\RedCandleGames\NineSols
 ```
+For Linux:
+```
+/home/(username)/.steam/steam/steamapps/compatdata/1809540/pfx/drive_c/users/steamuser/AppData/LocalLow/RedCandleGames/NineSols/
+```
 
 ## Technical info⚙️
 
