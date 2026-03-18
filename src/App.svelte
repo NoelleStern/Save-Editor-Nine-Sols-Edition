@@ -36,7 +36,7 @@
 
     <!-- Main content -->
     <div class="frame bg-primary overflow-hidden size-full">
-      <div class="relative rounded-(--frame-radius) bg-base-300 overflow-y-scroll overflow-x-hidden size-full">
+      <div class="relative rounded-(--frame-radius) bg-base-300 overflow-y-auto overflow-x-hidden size-full">
         {#if $savefile && $inflatedData.length > 0}
           {#key $inflatedData}
               <!-- Iterates through metadata -->
