@@ -36,10 +36,6 @@
           <div class="relative h-[1.2em]"> 
             <div class="text-info hover:underline select-all break-all">/home/(username)/.steam/steam/steamapps/compatdata/1809540/pfx/drive_c/users/steamuser/AppData/LocalLow/RedCandleGames/NineSols</div>
         </div>
-      <div class="mt-2">On macOS:</div>
-          <div class="relative h-[1.2em]">
-            <div class="text-info hover:underline select-all break-all">$HOME/Library/Application Support/com.RedCandleGames.NineSols</div>
-        </div>
       </div>
 
       <!-- Instructions -->
