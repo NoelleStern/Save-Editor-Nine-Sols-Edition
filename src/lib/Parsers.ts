@@ -161,7 +161,9 @@ export function getFloatPaths(jsonString: string): string[] {
 
   for (const [pointer, info] of Object.entries(pointers)) {
     const raw: string = jsonString.slice(info.value.pos, info.valueEnd.pos);
-    if (checkFloat(raw)) { result.push(pointer); }
+    if (checkFloat(raw)) { // This was such a stupid bug to have
+      if (raw.endsWith('.0')) { result.push(pointer); } // I probably don't even need the checkFloat
+    }
   }
 
   return result;
