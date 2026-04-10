@@ -34,7 +34,6 @@
     }
 
     dropCallback(file);
-    console.log('meow');
   }
 
 
