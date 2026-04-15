@@ -161,9 +161,7 @@ export function getFloatPaths(jsonString: string): string[] {
 
   for (const [pointer, info] of Object.entries(pointers)) {
     const raw: string = jsonString.slice(info.value.pos, info.valueEnd.pos);
-    if (checkFloat(raw)) { // This was such a stupid bug to have
-      if (raw.endsWith('.0')) { result.push(pointer); } // I probably don't even need the checkFloat
-    }
+    if (checkFloat(raw)) { result.push(pointer); }
   }
 
   return result;
@@ -177,8 +175,10 @@ export function putFloatsBack(jsonObject: Object, paths: string[]): string {
   for (const [pointer, info] of Object.entries(pointers)) {
     if (paths.includes(pointer)) {
       const raw: string = json.slice(info.value.pos, info.valueEnd.pos);
-      result = replaceAt(result, info.value.pos+offset, info.valueEnd.pos+offset, `${raw}.0`);
-      offset += 2; // Since .0 adds 2 characters
+      if (!checkFloat(raw)) { // Float check should also happen here
+        result = replaceAt(result, info.value.pos+offset, info.valueEnd.pos+offset, `${raw}.0`);
+        offset += 2; // Since .0 adds 2 characters
+      }
     }
   }
 
