@@ -26,8 +26,6 @@
 
     const file: File = event.dataTransfer.files[0];
     console.log(file.name);
-    console.log(file.name.endsWith('.sav') );
-    console.log(file.name.endsWith('.sav.bak'));
     if (!file.name.endsWith('.sav') && !file.name.endsWith('.sav.bak')) {
       // TODO: Toast
       return;
