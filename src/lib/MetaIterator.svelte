@@ -1,9 +1,8 @@
 <script lang="ts">
 
-  import BigNumber from 'bignumber.js';
   import FieldInput from './FieldInput.svelte';
   import FieldIterator from './FieldIterator.svelte';
-  import { getChunk, capitalizeKey, isObject } from './Utils';
+  import { getChunk, capitalizeKey, isObject, isBigNumber } from './Utils';
   import { saveData, saveDataUnmodified } from './Stores/DataStore.svelte';
   import { updateValue, UpdateResult, type InputType } from './InputUpdater';
   
@@ -12,16 +11,6 @@
   function update(e: Event, key: string, type: InputType) {
     const result: UpdateResult = updateValue(e, $saveData.meta, $saveDataUnmodified.meta, key, type);
     $saveData.meta[key] = result.value;
-  }
-
-  // I don't like it, but it works
-  function isBigNumber(value: unknown): boolean {
-    return (
-      typeof value == 'object' && value != null &&
-      typeof (value as any).isFinite == 'function' &&
-      typeof (value as any).decimalPlaces == 'function' &&
-      typeof (value as any).toFixed == 'function'
-    );
   }
 
 </script>

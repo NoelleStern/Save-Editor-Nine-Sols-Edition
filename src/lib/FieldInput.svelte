@@ -1,6 +1,8 @@
 
 <script lang="ts">
 
+  import { isBigNumber } from './Utils';
+
   interface Props { inputValue: any, update: Function };
   let { inputValue, update }: Props = $props();
 
@@ -13,6 +15,6 @@
   <input type="text" placeholder="Input a value" class="input" oninput={(e) => {update(e, 'string')}} value={inputValue} />
 {:else if typeof inputValue == 'boolean'}
   <input class="checkbox checkbox-primary" type="checkbox" onchange={(e) => {update(e, 'boolean')}} checked={inputValue} />
-{:else if inputValue.constructor?.name == 'BigNumber'}
+{:else if isBigNumber(inputValue)}
   <input type="text" placeholder="Input a value" class="input" oninput={(e) => {update(e, 'bigNumber')}} value={inputValue.toString()} />
 {/if}
