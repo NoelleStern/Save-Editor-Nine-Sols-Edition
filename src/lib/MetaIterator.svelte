@@ -1,5 +1,6 @@
 <script lang="ts">
 
+  import BigNumber from 'bignumber.js';
   import FieldInput from './FieldInput.svelte';
   import FieldIterator from './FieldIterator.svelte';
   import { getChunk, capitalizeKey, isObject } from './Utils';
@@ -13,6 +14,16 @@
     $saveData.meta[key] = result.value;
   }
 
+  // I don't like it, but it works
+  function isBigNumber(value: unknown): boolean {
+    return (
+      typeof value == 'object' && value != null &&
+      typeof (value as any).isFinite == 'function' &&
+      typeof (value as any).decimalPlaces == 'function' &&
+      typeof (value as any).toFixed == 'function'
+    );
+  }
+
 </script>
 
 
@@ -23,7 +34,7 @@
         {#each items as [key, value]}
           <td class="ps-[1rem] pe-[1.5rem] py-2">
           
-            {#if (value.constructor?.name == 'BigNumber')}
+            {#if isBigNumber(value)}
 
               <div class="flex items-center gap-2 shrink ps-2 border-l-3 leading-10"
                 style:border-color={ $saveData.meta[key].isEqualTo($saveDataUnmodified.meta[key]) ? 'var(--color-success)' : 'var(--color-error)' }
