@@ -6,7 +6,7 @@ export function chunk<T>(arr: T[], len: number = 3): T[][] {
   return res;
 }
 
-export function getChunk(obj: Object) {
+export function getChunk(obj: Object): [string, any][][] {
   return chunk(Object.entries(obj));
 }
 

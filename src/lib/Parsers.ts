@@ -70,7 +70,7 @@ export function addTrailingZeros(jsonString: string) {
 }
 // Used to find floats in the input meta json
 export function checkFloat(str: string): boolean {
-  return str.match(/^-?\d+\.\d+$/) != null;
+  return str.match(/^"?-?\d+\.\d+"?$/) != null;
 }
 // Used to find floats without trailing zeroes in the output meta json
 export function checkInt(str: string): boolean {
