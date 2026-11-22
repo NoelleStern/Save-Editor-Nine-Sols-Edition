@@ -5,6 +5,8 @@
   interface Props { fileInput: HTMLInputElement};
   let { fileInput=$bindable() }: Props = $props();
 
+  let file: File|null = $state(null);
+
 </script>
 
 
@@ -20,49 +22,53 @@
 
 <div class="grid justify-center items-center size-full">
   
-  <div class="grid justify-center items-center gap-2 w-max h-full">
-    <div class="pt-1 pb-4">
+  {#if file == null}
+    <div class="grid justify-center items-center gap-2 w-max h-full">
+      <div class="pt-1 pb-4">
 
-      <!-- Title -->
-      <div class="text-4xl text-bold text-secondary text-center"> Attention! </div>
-    
-      <!-- Save file location -->
-      <div class="py-2 text-center">
-        <div> On Windows, Save files are located at: </div>
-          <div class="relative h-[1.2em]"> 
-            <div class="text-info hover:underline select-all break-all">%userprofile%\AppData\LocalLow\RedCandleGames\NineSols</div>
+        <!-- Title -->
+        <div class="text-4xl text-bold text-secondary text-center"> Attention! </div>
+      
+        <!-- Save file location -->
+        <div class="py-2 text-center">
+          <div> On Windows, Save files are located at: </div>
+            <div class="relative h-[1.2em]"> 
+              <div class="text-info hover:underline select-all break-all">%userprofile%\AppData\LocalLow\RedCandleGames\NineSols</div>
+          </div>
+        <div class="mt-2">On Linux (Proton Prefix):</div>
+            <div class="relative h-[1.2em]"> 
+              <div class="text-info hover:underline select-all break-all">/home/(username)/.steam/steam/steamapps/compatdata/1809540/pfx/drive_c/users/steamuser/AppData/LocalLow/RedCandleGames/NineSols</div>
+          </div>
         </div>
-      <div class="mt-2">On Linux (Proton Prefix):</div>
-          <div class="relative h-[1.2em]"> 
-            <div class="text-info hover:underline select-all break-all">/home/(username)/.steam/steam/steamapps/compatdata/1809540/pfx/drive_c/users/steamuser/AppData/LocalLow/RedCandleGames/NineSols</div>
+
+        <!-- Instructions -->
+        <div class="flex flex-col max-w-[40rem] w-full mx-auto">
+          <!-- Quick guide -->
+          {@render horizontalLine('Quick Guide', 'mt-4')}
+          <li> Please, <span class="font-bold">make a backup</span> of your original save file </li>
+          <li> Select or drag'n'drop the save file you want to modify </li>
+          <li> Wait patiently for the file to open, it usually takes a few seconds </li>
+          <li> Modify your save file, <kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">F</kbd> is your best friend </li>
+          <li> Download your newly modified save file and enjoy </li>
+
+          <!-- Considerations -->
+          {@render horizontalLine('Other considerations', 'mt-7')}
+          <li> I do not recommend zooming the page in or out while a file is open </li>
+          <li> Works best on Firefox </li>
+          <li> The software is provided "as is" and I'm not responsible for any potential data loss </li>
+
+          <!-- File picker -->
+          <div class="pt-5">
+            <FilePicker bind:fileInput bind:file />
+          </div>
         </div>
+
       </div>
-
-      <!-- Instructions -->
-      <div class="flex flex-col max-w-[40rem] w-full mx-auto">
-        <!-- Quick guide -->
-        {@render horizontalLine('Quick Guide', 'mt-4')}
-        <li> Please, <span class="font-bold">make a backup</span> of your original save file </li>
-        <li> Select or drag'n'drop the save file you want to modify </li>
-        <li> Wait patiently for the file to open, it usually takes a few seconds </li>
-        <li> Modify your save file, <kbd class="kbd">Ctrl</kbd>+<kbd class="kbd">F</kbd> is your best friend </li>
-        <li> Download your newly modified save file and enjoy </li>
-
-        <!-- Considerations -->
-        {@render horizontalLine('Other considerations', 'mt-7')}
-        <li> I do not recommend zooming the page in or out while a file is open </li>
-        <li> Works best on Firefox </li>
-        <li> The software is provided "as is" and I'm not responsible for any potential data loss </li>
-
-        <!-- File picker -->
-        <div class="pt-5">
-          <FilePicker bind:fileInput />
-        </div>
-      </div>
-
     </div>
-  </div>
 
-  <a href="https://github.com/NoelleStern/Save-Editor-Nine-Sols-Edition" class="absolute bottom-2 right-5 hover:underline max-md:hidden">by Noelle Stern</a>
+    <a href="https://github.com/NoelleStern/Save-Editor-Nine-Sols-Edition" class="absolute bottom-2 right-5 hover:underline max-md:hidden">by Noelle Stern</a>
+  {:else}
+    <span class="text-2xl">LOADING</span>
+  {/if}
 
 </div>
