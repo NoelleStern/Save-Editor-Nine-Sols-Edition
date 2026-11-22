@@ -19,3 +19,13 @@ export function capitalizeKey(key: string, ignoreLonely: boolean = false) {
     ? String(key).charAt(0).toUpperCase()+String(key).slice(1) 
     : key
 }
+
+// I don't like it, but it works
+export function isBigNumber(value: unknown): boolean {
+  return (
+    typeof value == 'object' && value != null &&
+    typeof (value as any).isFinite == 'function' &&
+    typeof (value as any).decimalPlaces == 'function' &&
+    typeof (value as any).toFixed == 'function'
+  );
+}
